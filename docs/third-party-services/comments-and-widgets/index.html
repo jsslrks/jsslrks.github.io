@@ -1,0 +1,199 @@
+<hr>
+<p>title: Comments and Widgets</p>
+<h2 id="description-NexT-User-Docs-–-Third-party-Service-Integration-–-Comments-and-Widgets"><a href="#description-NexT-User-Docs-–-Third-party-Service-Integration-–-Comments-and-Widgets" class="headerlink" title="description: NexT User Docs – Third-party Service Integration – Comments and Widgets"></a>description: NexT User Docs – Third-party Service Integration – Comments and Widgets</h2><h3 id="Disqus"><a href="#Disqus" class="headerlink" title="Disqus"></a>Disqus</h3><p>Disqus is a global comment system that improves discussion on websites and connects conversations across the web.</p>
+<ol>
+<li>Create an account and log into <a href="https://disqus.com/">Disqus</a>. Once logged in, click the <code>GET STARTED</code> button on the homepage, then select <code>I want to install Disqus on my site</code> option and you will see the <code>Create a new site</code> interface.</li>
+<li>Enter your <code>Website Name</code>, which will serve as your Disqus shortname, and select a Category from the drop-down menu. Then click <code>Create Site</code> button.</li>
+<li>Choose <code>I don&#39;t see my platform listed, install manually with Universal Code</code>, configure Disqus for your site, and click <code>Complete Setup</code> button.</li>
+<li>Set the value <code>enable</code> to <code>true</code>, add the obtained Disqus shortname (<code>shortname</code>), and edit other configurations in <code>disqus</code> section in the {% label primary@theme config file %} as following:<pre><code class="yml"><span class="attr">disqus:</span>
+<span class="attr">  enable:</span> <span class="literal">false</span>
+<span class="attr">  shortname:</span> <span class="string">your-short-disqus-name</span>
+<span class="attr">  count:</span> <span class="literal">true</span></code></pre>
+</li>
+</ol>
+<h3 id="DisqusJS"><a href="#DisqusJS" class="headerlink" title="DisqusJS"></a>DisqusJS</h3><p>Render Disqus comment component using Disqus API.</p>
+<ol>
+<li>Get your Disqus API Key from <a href="https://disqus.com/api/applications/">Disqus API Application</a>.</li>
+<li>Go to the settings page of your Disqus Application, enter your domain in Settings -&gt; Domains.</li>
+<li>Get your Disqus Shortname from <a href="https://disqus.com/admin/settings/general/">General Settings - Disqus Admin</a>.</li>
+<li>Set the value <code>enable</code> to <code>true</code>, add the obtained Disqus API Key (<code>apikey</code>) and Shortname (<code>shortname</code>), and edit other configurations in <code>disqusjs</code> section in the {% label primary@theme config file %} as following:<pre><code class="yml"><span class="comment"># DisqusJS</span>
+<span class="comment"># Alternative Disqus - Render comment component using Disqus API</span>
+<span class="comment"># Demo: https://suka.js.org/DisqusJS/</span>
+<span class="attr">disqusjs:</span>
+<span class="attr">  enable:</span> <span class="literal">false</span>
+  <span class="comment"># API Endpoint of Disqus API (https://disqus.com/api/)</span>
+  <span class="comment"># leave api empty if you are able to connect to Disqus API</span>
+  <span class="comment"># otherwise you need a reverse proxy for Disqus API</span>
+  <span class="comment"># For example: </span>
+  <span class="comment"># api: https://disqus.skk.moe/disqus/</span>
+<span class="attr">  api:</span>
+<span class="attr">  apikey:</span> <span class="comment"># register new application from https://disqus.com/api/applications/</span>
+<span class="attr">  shortname:</span> <span class="comment"># See: https://disqus.com/admin/settings/general/</span></code></pre>
+</li>
+</ol>
+<h3 id="Facebook-Comments-and-Likes"><a href="#Facebook-Comments-and-Likes" class="headerlink" title="Facebook Comments and Likes"></a>Facebook Comments and Likes</h3><p>The <a href="https://developers.facebook.com/docs/plugins/comments?locale=en_US">Facebook comments plugin</a> lets people comment on content on your site using their Facebook account. People can choose to share their comment activity with their friends (and friends of their friends) on Facebook as well. The comments plugin also includes built-in moderation tools and social relevance ranking.</p>
+<ol>
+<li><p>Firstly you need to integrate <a href="https://developers.facebook.com/apps">Facebook SDK</a>, by setting following options in {% label primary@theme config file %}:</p>
+<pre><code class="yml"><span class="comment"># Facebook SDK Support.</span>
+<span class="attr">facebook_sdk:</span>
+<span class="attr">  enable:</span>       <span class="literal">false</span>
+<span class="attr">  app_id:</span>       <span class="comment">#&lt;app_id&gt;</span>
+<span class="attr">  fb_admin:</span>     <span class="comment">#&lt;user_id&gt;</span>
+<span class="attr">  like_button:</span>  <span class="comment">#true</span>
+<span class="attr">  webmaster:</span>    <span class="comment">#true</span></code></pre>
+</li>
+<li><p>Then set the value <code>enable</code> to <code>true</code> in <code>facebook_comments_plugin</code> section, and change following options below:</p>
+<pre><code class="yml"><span class="comment"># Facebook comments plugin</span>
+<span class="comment"># This plugin depends on Facebook SDK.</span>
+<span class="comment"># If facebook_sdk.enable is false, Facebook comments plugin is unavailable.</span>
+<span class="attr">facebook_comments_plugin:</span>
+<span class="attr">  enable:</span>       <span class="literal">false</span>
+<span class="attr">  num_of_posts:</span> <span class="number">10</span>    <span class="comment"># min posts num is 1</span>
+<span class="attr">  width:</span>        <span class="number">100</span><span class="string">%</span>  <span class="comment"># default width is 550px</span>
+<span class="attr">  scheme:</span>       <span class="string">light</span> <span class="comment"># default scheme is light (light or dark)</span></code></pre>
+</li>
+</ol>
+<h3 id="VKontakte-Comments-and-Likes"><a href="#VKontakte-Comments-and-Likes" class="headerlink" title="VKontakte Comments and Likes"></a>VKontakte Comments and Likes</h3><p>VKontakte offers flexible commentting tools that can be easily built into your website. This enables VK users to comment on your materials without having to register on your site.  </p>
+<p>{% tabs vkontakte_api %}</p>
+<!-- tab Get API ID → -->
+<p>Login to VKontakte Developers and <a href="https://vk.com/editapp?act=create">create apps</a>. Go to the <a href="https://vk.com/dev/Comments">Comments Widget</a>, you will get some code:<br>{% code lang:html %}</p>
+<script type="text/javascript">
+  VK.init({apiId: API_ID, onlyWidgets: true});
+</script>
+<p>{% endcode %}</p>
+<!-- endtab -->
+
+<!-- tab NexT Config -->
+
+<p>You can enable it by editing values <code>vkontakte_api.enable</code> to <code>true</code>, and copy <code>API_ID</code> value of <code>apiId</code> key in {% label primary@theme config file %}.</p>
+<p>{% code lang:yml next/_config.yml %}<br>vkontakte_api:<br>  enable:       false<br>  app_id:       API_ID #<app_id><br>  comments:     true<br>  num_of_posts: 10<br>{% endcode %}</p>
+<!-- endtab -->
+<p>{% endtabs %}</p>
+<p>With «Like» widget your visitors can express their attitude towards an article with one click or immediately share the link to it with their friends.  </p>
+<p>{% tabs vkontakte_api_like %}</p>
+<!-- tab Get API ID → -->
+<p>Login to VKontakte Developers and <a href="https://vk.com/editapp?act=create">create apps</a>. Go to the <a href="https://vk.com/dev/Like">Like Widget</a>, you will get some code:<br>{% code lang:html %}</p>
+<script type="text/javascript">
+  VK.init({apiId: API_ID, onlyWidgets: true});
+</script>
+<p>{% endcode %}</p>
+<!-- endtab -->
+
+<!-- tab NexT Config -->
+
+<p>You can enable it by editing values <code>vkontakte_api.enable</code> to <code>true</code>, and copy <code>API_ID</code> value of <code>apiId</code> key in {% label primary@theme config file %}.</p>
+<p>{% code lang:yml next/_config.yml %}<br>vkontakte_api:<br>  enable:       false<br>  app_id:       API_ID #<app_id><br>  like:         true<br>  num_of_posts: 10<br>{% endcode %}</p>
+<!-- endtab -->
+<p>{% endtabs %}</p>
+<h3 id="Gitalk"><a href="#Gitalk" class="headerlink" title="Gitalk"></a>Gitalk</h3><p>Gitalk is a modern comment component based on Github Issue and Preact.</p>
+<p>{% note info %}<br>Gitalk can only use GitHub accounts for comments.<br>{% endnote %}</p>
+<ol>
+<li><p>Click here to sign up for a <a href="https://github.com/settings/applications/new">new OAuth Application</a>. Other content can be filled in at will, but be sure to fill in the correct callback URL (usually the domain name corresponding to the comment page). Then you will get a Client ID and a Client secret.</p>
+</li>
+<li><p>Create a repository you want to store Gitalk comments in your GitHub.</p>
+</li>
+<li><p>Set the value <code>enable</code> to <code>true</code>, add Client ID (<code>client_id</code>) and Client secret (<code>client_secret</code>) in step 1, add your Github username (<code>github_id</code> and <code>admin_user</code>) and the created repository name (<code>repo</code>) in step 2, and edit other configurations in <code>gitalk</code> section in the {% label primary@theme config file %} as following:</p>
+<pre><code class="yml"><span class="comment"># Gitalk</span>
+<span class="comment"># Demo: https://gitalk.github.io</span>
+<span class="attr">gitalk:</span>
+<span class="attr">  enable:</span> <span class="literal">false</span>
+<span class="attr">  github_id:</span>  <span class="comment"># Github repo owner</span>
+<span class="attr">  repo:</span>  <span class="comment"># Repository name to store issues</span>
+<span class="attr">  client_id:</span>  <span class="comment"># Github Application Client ID</span>
+<span class="attr">  client_secret:</span>  <span class="comment"># Github Application Client Secret</span>
+<span class="attr">  admin_user:</span>  <span class="comment"># GitHub repo owner and collaborators, only these guys can initialize github issues</span>
+<span class="attr">  distraction_free_mode:</span> <span class="literal">true</span> <span class="comment"># Facebook-like distraction free mode</span>
+  <span class="comment"># Gitalk's display language depends on user's browser or system environment</span>
+  <span class="comment"># If you want everyone visiting your site to see a uniform language, you can set a force language value</span>
+  <span class="comment"># Available value: en, es-ES, fr, ru, zh-CN, zh-TW</span>
+<span class="attr">  language:</span></code></pre>
+</li>
+</ol>
+<h3 id="LiveRe"><a href="#LiveRe" class="headerlink" title="LiveRe"></a>LiveRe</h3><p>LiveRe is a content platform based on social networking site reviews to help users communicate freely.</p>
+<ol>
+<li><p>Create an account or log into <a href="https://livere.com">LiveRe</a>, click on the <code>installation</code> button and select the free city version, then click on the <code>install now</code> button.</p>
+</li>
+<li><p>Copy the <code>data-uid</code> field in the installation code to get your LiveRe UID.</p>
+</li>
+<li><p>Add the obtained LiveRe UID to the <code>livere_uid</code> section in the {% label primary@theme config file %} as following:</p>
+<pre><code class="yml"><span class="comment"># Support for LiveRe comments system.</span>
+<span class="comment"># You can get your uid from https://livere.com/insight/myCode (General web site)</span>
+<span class="attr">livere_uid:</span> <span class="string">your_uid</span></code></pre>
+</li>
+</ol>
+<h3 id="Gitment"><a href="#Gitment" class="headerlink" title="Gitment"></a>Gitment</h3><p>Gitment is an commenting system based on GitHub Issues, which supports for direct introduction at the front end does not require any backend code. You can log in, view, comment, like, etc. on the page, with full Markdown / GFM and code highlighting support.</p>
+<p>{% note info %}<br>Gitment can only use GitHub accounts for comments.<br>{% endnote %}</p>
+<ol>
+<li><p>Click here to sign up for a <a href="https://github.com/settings/applications/new">new OAuth Application</a>. Other content can be filled in at will, but be sure to fill in the correct callback URL (usually the domain name corresponding to the comment page). Then you will get a Client ID and a Client secret, which will be used for subsequent user logins.</p>
+</li>
+<li><p>Create a repository you want to store Gitment comments in your GitHub.</p>
+</li>
+<li><p>Set the value <code>enable</code> to <code>true</code>, add Client ID (<code>client_id</code>) and Client secret (<code>client_secret</code>) in step 1, add your Github username (<code>github_user</code>) and the created repository name (<code>github_repo</code>) in step 2, and edit other configurations in <code>gitment</code> section in the {% label primary@theme config file %} as following:</p>
+<pre><code class="yml"><span class="comment"># Gitment</span>
+<span class="comment"># Introduction: https://imsun.net/posts/gitment-introduction/</span>
+<span class="attr">gitment:</span>
+<span class="attr">  enable:</span> <span class="literal">false</span>
+<span class="attr">  mint:</span> <span class="literal">true</span> <span class="comment"># RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway</span>
+<span class="attr">  count:</span> <span class="literal">true</span> <span class="comment"># Show comments count in post meta area</span>
+<span class="attr">  lazy:</span> <span class="literal">false</span> <span class="comment"># Comments lazy loading with a button</span>
+<span class="attr">  cleanly:</span> <span class="literal">false</span> <span class="comment"># Hide 'Powered by ...' on footer, and more</span>
+<span class="attr">  language:</span> <span class="comment"># Force language, or auto switch by theme</span>
+<span class="attr">  github_user:</span> <span class="comment"># MUST HAVE, Your Github Username</span>
+<span class="attr">  github_repo:</span> <span class="comment"># MUST HAVE, The name of the repo you use to store Gitment comments</span>
+<span class="attr">  client_id:</span> <span class="comment"># MUST HAVE, Github client id for the Gitment</span>
+<span class="attr">  client_secret:</span> <span class="comment"># EITHER this or proxy_gateway, Github access secret token for the Gitment</span>
+<span class="attr">  proxy_gateway:</span> <span class="comment"># Address of api proxy, See: https://github.com/aimingoo/intersect</span>
+<span class="attr">  redirect_protocol:</span> <span class="comment"># Protocol of redirect_uri with force_redirect_protocol when mint enabled</span></code></pre>
+</li>
+<li><p>After the post is published, you will need to visit this page, log in with your GitHub account and click the <code>Initialize button</code>, then other users can post comments on this page.</p>
+</li>
+</ol>
+<p>{% note warning %}<br>Please note that the authorized permission of Gitment will obtain the read and write access to all your public repositories and maybe send github keys to the 3rd-party imsun’s proxy server. <strong>If you concern about the security, we strongly deprecated to use gitment</strong>. <a href="https://github.com/theme-next/hexo-theme-next/issues/35">Useful link</a><br>{% endnote %}</p>
+<h3 id="Valine-China"><a href="#Valine-China" class="headerlink" title="Valine (China)"></a>Valine (China)</h3><p>Valine is a fast, simple &amp; efficient Leancloud based no back end comment system.</p>
+<ol>
+<li><p>Create an account or log into <a href="https://leancloud.cn/dashboard/login.html#/signin">LeanCloud</a>, and then click on the bottom left corner to <a href="https://leancloud.cn/dashboard/applist.html#/newapp">create the application</a> in <a href="https://leancloud.cn/dashboard/applist.html#/apps">dashboard</a>.<br> <img src="/images/docs/valine-1.png" alt="Valine"></p>
+</li>
+<li><p>Go to the application you just created, select <code>Settings -&gt; Apply Key</code> in the lower left corner, and you will see your APP ID and APP Key.<br> <img src="/images/docs/valine-2.png" alt="Valine"></p>
+</li>
+<li><p>Set the value <code>enable</code> to <code>true</code>, add the obtained APP ID (<code>appid</code>) and APP Key (<code>appkey</code>), and edit other configurations in <code>valine</code> section in the {% label primary@theme config file %} as following:</p>
+<pre><code class="yml"><span class="comment"># Valine.</span>
+<span class="comment"># You can get your appid and appkey from https://leancloud.cn</span>
+<span class="comment"># more info please open https://valine.js.org</span>
+<span class="attr">valine:</span>
+<span class="attr">  enable:</span> <span class="literal">false</span> <span class="comment"># When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.</span>
+<span class="attr">  appid:</span>  <span class="comment"># your leancloud application appid</span>
+<span class="attr">  appkey:</span>  <span class="comment"># your leancloud application appkey</span>
+<span class="attr">  notify:</span> <span class="literal">false</span> <span class="comment"># mail notifier , https://github.com/xCss/Valine/wiki</span>
+<span class="attr">  verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span>
+<span class="attr">  placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># comment box placeholder</span>
+<span class="attr">  avatar:</span> <span class="string">mm</span> <span class="comment"># gravatar style</span>
+<span class="attr">  guest_info:</span> <span class="string">nick,mail,link</span> <span class="comment"># custom comment header</span>
+<span class="attr">  pageSize:</span> <span class="number">10</span> <span class="comment"># pagination size</span>
+<span class="attr">  visitor:</span> <span class="literal">false</span> <span class="comment"># leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html</span></code></pre>
+</li>
+</ol>
+<h3 id="Changyan-China"><a href="#Changyan-China" class="headerlink" title="Changyan (China)"></a>Changyan (China)</h3><p>Changyan is the industry’s leading social commenting system, supporting both PC and mobile access methods, providing a new way of commenting on websites. Changyan has a variety of common account login, triple filtering mechanism, real-time data statistics, fast data export, comprehensive support for mobile and other leading functions. It fully satisfies the needs of major websites for user login, comment, sharing, and review.</p>
+<ol>
+<li><p>Create an account or log into <a href="https://changyan.kuaizhan.com/">Changyan</a>, then add your site to get APP ID and APP KEY.</p>
+</li>
+<li><p>Set the value <code>enable</code> to <code>true</code>, and add the obtained APP ID (<code>appid</code>) and APP KEY (<code>appkey</code>) to the <code>changyan</code> section in the {% label primary@theme config file %} as following:</p>
+<pre><code class="yml"><span class="comment"># changyan</span>
+<span class="attr">changyan:</span>
+<span class="attr">  enable:</span> <span class="literal">false</span>
+<span class="attr">  appid:</span>
+<span class="attr">  appkey:</span></code></pre>
+</li>
+</ol>
+<p>{% note warning %}<br>Please note that you should fill in the ICP record number of your website in time. If not, or the record information is not correct, the comment service will be stopped after 13 days. <a href="http://changyan.kuaizhan.com/help/o-beian.html">Useful link</a><br>{% endnote %}</p>
+<h3 id="Widgetpack-Rating"><a href="#Widgetpack-Rating" class="headerlink" title="Widgetpack Rating"></a>Widgetpack Rating</h3><p>Rating service with login through any social networks like Facebook, Twitter, Google+, LinkedIn, Instagram and others.</p>
+<p>{% tabs rating %}</p>
+<!-- tab Get ID → -->
+<p>Login to <a href="https://widgetpack.com/admin#signin">widgetpack</a> and add new site, you will get your site ID:<br>{% code lang:html %}<br>wpac_init.push({widget: ‘Rating’, id: ID});<br>{% endcode %}</p>
+<!-- endtab -->
+
+<!-- tab NexT Config -->
+
+<p>You can enable it by editing values <code>rating.enable</code> to <code>true</code>, and copy <code>ID</code> value of <code>id</code> in {% label primary@theme config file %}. You can also configure the rating color by editing values in <code>rating.color</code> section.</p>
+<p>{% code lang:yml next/_config.yml %}<br>rating:<br>  enable: false<br>  id:     ID #<app_id><br>  color:  fc6423<br>{% endcode %}</p>
+<!-- endtab -->
+<p>{% endtabs %}</p>

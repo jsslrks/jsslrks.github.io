@@ -1,0 +1,214 @@
+<hr>
+<p>title: Advanced Settings</p>
+<h2 id="description-NexT-User-Docs-–-Advanced-Settings"><a href="#description-NexT-User-Docs-–-Advanced-Settings" class="headerlink" title="description: NexT User Docs – Advanced Settings"></a>description: NexT User Docs – Advanced Settings</h2><p>Besides normal <a href="/docs/theme-settings/">Theme Settings</a> and <a href="/docs/third-party-services/">Third-party Services</a>, NexT supports some advanced settings which makes NexT customizable.<br>Please note that those settings may lead to abnormal behavior if they are wrong. Change them only when you know for what they are.</p>
+<h3 id="Third-party-JS-Libraries"><a href="#Third-party-JS-Libraries" class="headerlink" title="Third-party JS Libraries"></a>Third-party JS Libraries</h3><p>You can set it to a proper CDN URL, which can make static assets (JavaScript Third-party Library) load faster, now NexT contains following third-party library:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Original Link</th>
+<th>NexT Internal Version</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>jQuery</td>
+<td><a href="http://jquery.com">jquery.com</a></td>
+<td>2.1.3</td>
+</tr>
+<tr>
+<td>FontAwesome</td>
+<td><a href="http://fontawesome.io">fontawesome.io</a></td>
+<td>4.4.0</td>
+</tr>
+<tr>
+<td>VelocityJS</td>
+<td><a href="http://velocityjs.org">velocityjs.org</a></td>
+<td>1.2.1</td>
+</tr>
+<tr>
+<td>VelocityJS UI Pack</td>
+<td><a href="http://velocityjs.org/#uiPack">velocityjs.org/#uiPack</a></td>
+<td>1.2.1</td>
+</tr>
+<tr>
+<td>UAParser.js</td>
+<td><a href="https://faisalman.github.io/ua-parser-js">faisalman.github.io/ua-parser-js</a></td>
+<td>0.7.9</td>
+</tr>
+</tbody></table>
+<p>This feature located under <code>vendors</code> section in {% label primary@theme config file %}.<br><code>_internal: lib</code> is used to tell NexT where internal library is located and you shouldn’t change this in most cases.<br>And next part is config of each library; if you leave it blank NexT will use internal version. Each config is in format of <code>libname: CDN URL</code>. For example:</p>
+<pre><code class="yml"><span class="attr">jquery:</span> <span class="string">//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js</span></code></pre>
+<p>«Internal version» is the version that NexT tested and uses. And if you need other versions you need to test them first.</p>
+<pre><code class="yml"><span class="comment"># Script Vendors.</span>
+<span class="comment"># Set a CDN address for the vendor you want to customize.</span>
+<span class="comment"># For example</span>
+<span class="comment">#    jquery: https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js</span>
+<span class="comment"># Be aware that you should use the same version as internal ones to avoid potential problems.</span>
+<span class="comment"># Please use the https protocol of CDN files when you enable https on your site.</span>
+<span class="attr">vendors:</span>
+  <span class="comment"># Internal path prefix. Please do not edit it.</span>
+<span class="attr">  _internal:</span> <span class="string">lib</span>
+
+  <span class="comment"># Internal version: 2.1.3</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># jquery: //cdn.jsdelivr.net/npm/jquery@2/dist/jquery.min.js</span>
+  <span class="comment"># jquery: //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js</span>
+<span class="attr">  jquery:</span> <span class="string">//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js</span>
+
+  <span class="comment"># Internal version: 2.1.5</span>
+  <span class="comment"># See: https://fancyapps.com/fancybox</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js</span>
+  <span class="comment"># fancybox: //cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js</span>
+  <span class="comment"># fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css</span>
+  <span class="comment"># fancybox_css: //cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css</span>
+<span class="attr">  fancybox:</span> <span class="string">//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js</span>
+<span class="attr">  fancybox_css:</span> <span class="string">//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css</span>
+
+  <span class="comment"># Internal version: 1.0.6</span>
+  <span class="comment"># See: https://github.com/ftlabs/fastclick</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># fastclick: //cdn.jsdelivr.net/npm/fastclick@1/lib/fastclick.min.js</span>
+  <span class="comment"># fastclick: //cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js</span>
+<span class="attr">  fastclick:</span> <span class="string">//cdn.jsdelivr.net/npm/fastclick/lib/fastclick.min.js</span>
+
+  <span class="comment"># Internal version: 1.9.7</span>
+  <span class="comment"># See: https://github.com/tuupola/jquery_lazyload</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># lazyload: //cdn.jsdelivr.net/npm/jquery-lazyload@1/jquery.lazyload.min.js</span>
+  <span class="comment"># lazyload: //cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js</span>
+<span class="attr">  lazyload:</span> <span class="string">//cdn.jsdelivr.net/npm/jquery-lazyload/jquery.lazyload.min.js</span>
+
+  <span class="comment"># Internal version: 1.2.1</span>
+  <span class="comment"># See: http://velocityjs.org</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># velocity: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js</span>
+  <span class="comment"># velocity: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js</span>
+  <span class="comment"># velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js</span>
+  <span class="comment"># velocity_ui: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js</span>
+<span class="attr">  velocity:</span> <span class="string">//cdn.jsdelivr.net/npm/velocity-animate/velocity.min.js</span>
+<span class="attr">  velocity_ui:</span> <span class="string">//cdn.jsdelivr.net/npm/velocity-animate/velocity.ui.min.js</span>
+
+  <span class="comment"># Internal version: 0.7.9</span>
+  <span class="comment"># See: https://faisalman.github.io/ua-parser-js</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># ua_parser: //cdn.jsdelivr.net/npm/ua-parser-js@0/src/ua-parser.min.js</span>
+  <span class="comment"># ua_parser: //cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.9/ua-parser.min.js</span>
+<span class="attr">  ua_parser:</span> <span class="string">//cdn.jsdelivr.net/npm/ua-parser-js/src/ua-parser.min.js</span>
+
+  <span class="comment"># Internal version: 4.6.2</span>
+  <span class="comment"># See: https://fontawesome.com</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css</span>
+  <span class="comment"># fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css</span>
+<span class="attr">  fontawesome:</span> <span class="string">//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css</span>
+
+  <span class="comment"># Internal version: 2.4.1</span>
+  <span class="comment"># See: https://www.algolia.com</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># algolia_instant_js: //cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.js</span>
+  <span class="comment"># algolia_instant_css: //cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css</span>
+<span class="attr">  algolia_instant_js:</span>
+<span class="attr">  algolia_instant_css:</span>
+
+  <span class="comment"># Internal version: 1.0.2</span>
+  <span class="comment"># See: https://github.com/HubSpot/pace</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js</span>
+  <span class="comment"># pace: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js</span>
+  <span class="comment"># pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css</span>
+  <span class="comment"># pace_css: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css</span>
+<span class="attr">  pace:</span>
+<span class="attr">  pace_css:</span>
+
+  <span class="comment"># Internal version: 1.0.0</span>
+  <span class="comment"># See: https://github.com/theme-next/theme-next-canvas-nest</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js</span>
+  <span class="comment"># canvas_nest_nomobile: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js</span>
+<span class="attr">  canvas_nest:</span>
+<span class="attr">  canvas_nest_nomobile:</span>
+
+  <span class="comment"># Internal version: 1.0.0</span>
+  <span class="comment"># See: https://github.com/theme-next/theme-next-three</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># three: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js</span>
+  <span class="comment"># three_waves: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js</span>
+  <span class="comment"># canvas_lines: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_lines.min.js</span>
+  <span class="comment"># canvas_sphere: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js</span>
+<span class="attr">  three:</span>
+<span class="attr">  three_waves:</span>
+<span class="attr">  canvas_lines:</span>
+<span class="attr">  canvas_sphere:</span>
+
+  <span class="comment"># Internal version: 1.0.0</span>
+  <span class="comment"># See: https://github.com/zproo/canvas-ribbon</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js</span>
+<span class="attr">  canvas_ribbon:</span>
+
+  <span class="comment"># Internal version: 3.3.0</span>
+  <span class="comment"># See: https://github.com/ethantw/Han</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># han: //cdn.jsdelivr.net/npm/han-css@3/dist/han.min.css</span>
+  <span class="comment"># han: //cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css</span>
+<span class="attr">  han:</span> <span class="string">//cdn.jsdelivr.net/npm/han-css/dist/han.min.css</span>
+
+  <span class="comment"># Internal version: 3.3.0</span>
+  <span class="comment"># See: https://github.com/vinta/pangu.js</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># pangu: //cdn.jsdelivr.net/npm/pangu@3/dist/browser/pangu.min.js</span>
+  <span class="comment"># pangu: //cdnjs.cloudflare.com/ajax/libs/pangu/3.3.0/pangu.min.js</span>
+<span class="attr">  pangu:</span> <span class="string">//cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js</span>
+
+  <span class="comment"># See: https://github.com/GoogleChromeLabs/quicklink</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># quicklink: //cdn.jsdelivr.net/npm/quicklink@1.0.0/dist/quicklink.umd.js</span>
+<span class="attr">  quicklink:</span>
+
+  <span class="comment"># Internal version: 1.0.0</span>
+  <span class="comment"># See: https://github.com/revir/need-more-share2</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># needmoreshare2_js: //cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js</span>
+  <span class="comment"># needmoreshare2_css: //cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css</span>
+<span class="attr">  needmoreshare2_js:</span>
+<span class="attr">  needmoreshare2_css:</span>
+
+  <span class="comment"># Internal version: 1.0.0</span>
+  <span class="comment"># See: https://github.com/theme-next/theme-next-bookmark</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># bookmark: //cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@1/bookmark.min.js</span>
+<span class="attr">  bookmark:</span>
+
+  <span class="comment"># Internal version: 1.1</span>
+  <span class="comment"># See: https://github.com/theme-next/theme-next-reading-progress</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># reading_progress: //cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js</span>
+<span class="attr">  reading_progress:</span> <span class="string">//cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress/reading_progress.min.js</span>
+
+  <span class="comment"># leancloud-storage</span>
+  <span class="comment"># See: https://www.npmjs.com/package/leancloud-storage</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># leancloud: //cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js</span>
+<span class="attr">  leancloud:</span> <span class="string">//cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js</span>
+
+  <span class="comment"># valine</span>
+  <span class="comment"># See: https://github.com/xCss/Valine</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span>
+  <span class="comment"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js</span>
+<span class="attr">  valine:</span> <span class="string">/lib/Valine.min.js</span>
+
+  <span class="comment"># gitalk</span>
+  <span class="comment"># See: https://github.com/gitalk/gitalk</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># gitalk_js: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js</span>
+  <span class="comment"># gitalk_css: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css</span>
+<span class="attr">  gitalk_js:</span>
+<span class="attr">  gitalk_css:</span>
+
+  <span class="comment"># js-md5</span>
+  <span class="comment"># See: https://github.com/emn178/js-md5</span>
+  <span class="comment"># Example:</span>
+  <span class="comment"># md5: //cdn.jsdelivr.net/npm/js-md5@0/src/md5.min.js</span>
+<span class="attr">  md5:</span></code></pre>
