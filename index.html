@@ -318,7 +318,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-12T11:02:26+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-12T11:06:48+08:00">
                 2019-08-12
               </time>
             
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  621
+                  653
                 </span>
               
 
@@ -373,13 +373,12 @@
       
         
           
-            <p>#前期准备<br>　<br>1.下载node.js<br>　　下载 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a><br>　　选择左边的长期支持版（Recommend For Most Users）</p>
+            <h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>　<br>1.下载node.js<br>　　下载 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a><br>　　选择左边的长期支持版（Recommend For Most Users）</p>
 <p>2.下载git<br>　　下载<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git</a> 　<br>　　根据电脑自行选择32位或64位，配置path路径啥的自行百度即可</p>
 <p>3.使用管理员权限打开命令行<br>　　接下来的代码都再命令行实现</p>
 <p>4.利用npm安装淘宝镜像源cnpm<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
 <p>5.安装hexo<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
-<p>#正式安装</p>
-<p>1.新建一个文件夹（我这里新建的文件夹叫blog）<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> 　　mkdri blog</span><br></pre></td></tr></table></figure></p>
+<h1 id="正式安装"><a href="#正式安装" class="headerlink" title="正式安装"></a>正式安装</h1><p>1.新建一个文件夹（我这里新建的文件夹叫blog）<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> 　　mkdri blog</span><br></pre></td></tr></table></figure></p>
 <p>2.初始化博客<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　hexo init</span><br></pre></td></tr></table></figure></p>
 <p>　　安装完成后blog文件中会自动生成一些文件</p>
 <p>3.启动博客<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　hexo s</span><br></pre></td></tr></table></figure></p>
@@ -390,14 +389,14 @@
 <p>　　再hexo生成<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　hexo g</span><br></pre></td></tr></table></figure></p>
 <p>　　再重新启动hexo<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　hexo s</span><br></pre></td></tr></table></figure></p>
 <p> 　　启动完成后刷新一下刚刚的网页，刚刚写的博客就出现在网页中了</p>
-<p> #部署到GitHub</p>
-<p>1.注册登录GitHub</p>
+<h1 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h1><p>1.注册登录GitHub</p>
 <p>2.点右上角的＋号新建一个仓库（New repository）,在Repository name处填写：你的昵称.github.io（这里的命名必须是这个格式，例如我的是：jsslrks.github.io，后期访问博客只要输入这个地址即可），然后create即可</p>
 <p>3.在blog目录下安装一个git部署的插件<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
 <p>4.设置blog文件中的_config.yml文件<br>　　到文件的最底部，找到#Deployment，在这个小模块的type:后面配置<br>　　type: git<br>　　repo: <a href="https://github.com/jsslrks/jsslrks.github.io" target="_blank" rel="noopener">https://github.com/jsslrks/jsslrks.github.io</a> （这边回到第2步的网页复制一下Repository name里的网址，粘贴过来）<br>　　branch: master</p>
 <p>5.部署到远端<br>　　<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　hexo d</span><br></pre></td></tr></table></figure></p>
 <p>　　输入你的用户名和密码，输入密码时不会显示东西，但是你是输入进去的，输入完放心回车即可</p>
-<p>6.访问你的博客<br>　　新建标签页，在浏览器网址栏输入：你的用户名.github.io（就是刚刚的Repository name），就成功部署到GitHub上了
+<p>6.访问你的博客<br>　　新建标签页，在浏览器网址栏输入：你的用户名.github.io（就是刚刚的Repository name），就成功部署到GitHub上了</p>
+<h1 id="布置博客"><a href="#布置博客" class="headerlink" title="布置博客"></a>布置博客</h1><p>到这里博客就搭建完成了，博客的美观可以根据自己的喜好自行设置
 　　</p>
 
           
@@ -883,7 +882,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">729</span>
+    <span title="Site words total count">761</span>
   
 </div>
 
