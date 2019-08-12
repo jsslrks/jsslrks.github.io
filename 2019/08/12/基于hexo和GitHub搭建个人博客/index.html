@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="静深松里热开水">
 <meta property="og:description" content="前期准备　  下载node.js　　下载 node.js　　选择左边的长期支持版（Recommend For Most Users）  下载git　　下载git 　　　根据电脑自行选择32位或64位，配置path路径啥的自行百度即可  使用管理员权限打开命令行　　接下来的代码都再命令行实现  利用npm安装淘宝镜像源cnpm 1npm install -g cnpm --registry=http">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-12T07:42:11.820Z">
+<meta property="og:updated_time" content="2019-08-12T08:55:58.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于hexo和GitHub搭建个人博客">
 <meta name="twitter:description" content="前期准备　  下载node.js　　下载 node.js　　选择左边的长期支持版（Recommend For Most Users）  下载git　　下载git 　　　根据电脑自行选择32位或64位，配置path路径啥的自行百度即可  使用管理员权限打开命令行　　接下来的代码都再命令行实现  利用npm安装淘宝镜像源cnpm 1npm install -g cnpm --registry=http">
@@ -329,7 +329,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-08-12T15:42:11+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-08-12T16:55:58+08:00">
                 2019-08-12
               </time>
             
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  627
+                  678
                 </span>
               
 
@@ -465,10 +465,16 @@
 <li><p>在blog目录下安装一个git部署的插件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>设置blog文件中的_config.yml文件<br>　　到文件的最底部，找到#Deployment，在这个小模块的type:后面配置<br>　　type: git<br>　　repo: <a href="https://github.com/jsslrks/jsslrks.github.io" target="_blank" rel="noopener">https://github.com/jsslrks/jsslrks.github.io</a> （这边回到第2步的网页复制一下Repository name里的网址，粘贴过来）<br>　　branch: master</p>
+<li><p>设置blog文件中的_config.yml文件<br>　　到文件的最底部，找到#Deployment，在这个小模块的type:后面配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type: git </span><br><span class="line">repo: https://github.com/jsslrks/jsslrks.github.io （这边回到第2步的网页复制一下Repository name里的网址，粘贴过来）</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+
 </li>
-<li><p>部署到远端</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</ol>
+<blockquote>
+<p>注：此处的repo部分也可以改成：<code>repo： https://用户名:密码@github.com/jsslrks/jsslrks.github.io.git</code> 这样在执行第5步的时候就不需要再输入用户名和密码了</p>
+</blockquote>
+<ol start="5">
+<li>部署到远端<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -503,8 +509,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/21/我的第一篇文章/" rel="next" title="我的第一篇文章">
-                <i class="fa fa-chevron-left"></i> 我的第一篇文章
+              <a href="/2019/07/21/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -590,7 +596,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -670,7 +676,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">735</span>
+    <span title="Site words total count">751</span>
   
 </div>
 
