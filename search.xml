@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[基于hexo和GitHub搭建个人博客]]></title>
     <url>%2F2019%2F08%2F12%2F%E5%9F%BA%E4%BA%8Ehexo%E5%92%8CGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[前期准备 1.下载node.js 下载 node.js 选择左边的长期支持版（Recommend For Most Users） 2.下载git 下载git 根据电脑自行选择32位或64位 3.利用npm安装淘宝镜像源cnpm ‘’’ npm install -g cnpm –registry=https://registry.npm.taobao.org ‘’’]]></content>
+    <content type="text"><![CDATA[前期准备 1.下载node.js 下载 node.js 选择左边的长期支持版（Recommend For Most Users） 2.下载git 下载git 根据电脑自行选择32位或64位 3.利用npm安装淘宝镜像源cnpm 1 npm install -g cnpm --registry=https://registry.npm.taobao.org]]></content>
   </entry>
   <entry>
     <title><![CDATA[我的第一篇文章]]></title>
