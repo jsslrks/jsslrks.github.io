@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[python爬虫]]></title>
     <url>%2F2019%2F08%2F12%2Fpython%E7%88%AC%E8%99%AB%2F</url>
-    <content type="text"><![CDATA[1.{“errorcode”:50}]]></content>
+    <content type="text"><![CDATA[1.{“errorcode”:50}在对有道翻译进行爬虫时遇到{“errorcode”:50}错误，在查阅资料后发现，有道翻译的反爬虫机制导致这个错误 需要修改url原url:http://fanyi.youdao.com/translate_o?smartresult=dict&amp;smartresult=rule把_o删掉修改成：http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule]]></content>
       <categories>
         <category>python</category>
       </categories>
