@@ -8,7 +8,7 @@
   <entry>
     <title><![CDATA[pycharm下载cv2模块出现error]]></title>
     <url>%2F2019%2F11%2F11%2Fpycharm%E4%B8%8B%E8%BD%BDcv2%E6%A8%A1%E5%9D%97%E5%87%BA%E7%8E%B0error%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[pycharm下载cc2出现“error occerred when installing package ‘cv2’”解决方法： 1pip3 install opencv-python]]></content>
   </entry>
   <entry>
     <title><![CDATA[python爬虫]]></title>
