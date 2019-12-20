@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[win10下安装pytorch包]]></title>
+    <url>%2F2019%2F12%2F20%2Fwin10%E4%B8%8B%E5%AE%89%E8%A3%85pytorch%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[目的在win10下安装pytorch包 方法1.根据官网命令安装首先打开pytorch官网 OS:根据自己的系统选Package:Conda还是Pip都可以，如果有anaconda更建议使用CondaLanguage：根据python版本选择，我这里选择的python3.6CUDA：根据有无cuda选择，我这里选择的None然后复制最后一行的Run this Command里面的内容在命令行运行： 1pip3 install torch==1.3.1+cpu torchvision==0.4.2+cpu -f https://download.pytorch.org/whl/torch_stable.html 这种方法经常会因为网络问题中断，报read time out错 2.下载whl文件手动安装打开方法一中Run this Command一行里的网址https://download.pytorch.org/whl/torch_stable.htmlRun this Command中写道torch版本为1.3.1+cpu,torchvision版本是0.4.2+cpu,再根据自己电脑的python版本选择合适的文件下载，我这里是python3.6，Windows系统，提示：如果浏览器下载太慢可以用迅雷下载下载完成以后在命令行执行以下命令将刚刚下载的文件安装。install后面的是刚刚下载的文件的名字，视各自下载的名字不同修改。 12pip3 install torch-1.3.1+cpu-cp36-cp36m-win_amd64.whlpip3 install torchvision-0.4.2+cpu-cp36-cp36m-win_amd64.whl 显示安装成功测试能否调用torch包 自我小结一开始使用第一种方法尝试了n遍，最后放弃选择手动安装，也因为下错whl文件、网络和python版本问题纠结了一个下午。花了两个下午才解决这个问题，记录一下希望不要再在这种问题上花费这么久。 问题解决。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[pycharm 无法import导入自己写的模块]]></title>
     <url>%2F2019%2F12%2F17%2Fpycharm-%E6%97%A0%E6%B3%95import%E5%AF%BC%E5%85%A5%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E6%A8%A1%E5%9D%97%2F</url>
     <content type="text"><![CDATA[问题描述pycharm中import同文件夹下的另一个自己写的模块时，报错显示No module。 解决措施(1). 打开File–&gt; Setting—&gt; 打开 Console下的Python Console，把选项（Add source roots to PYTHONPAT）点击勾选上(2). 右键点击自己的工作空间文件夹，找到Mark Directory as 选择Source Root 问题解决。]]></content>
